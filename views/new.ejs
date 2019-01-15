@@ -1,0 +1,21 @@
+<%- include("./partials/header") %>
+<div style="margin: 90px;">
+    <form action="/new_cohort" method="POST">
+        <div class="form-group mb-4 mt-4">
+            <label for="logo-form">Logo Url</label>
+            <input type="url" class="form-control" name="logo" value="" id="logo-form" placeholder="e.g.http://www.example.com/some.png" autofocus>
+        </div>
+        <div class="form-group mb-4">
+            <label for="name-form">Name</label>
+            <input type="text" class="form-control" name="name" value="" id="name-form" placeholder="Flying Funks" required>
+        </div>
+        <div class="form-group mb-4">
+            <label for="members-form">Members</label>
+            <textarea class="form-control" name="members" value="" id="members-form" rows="5" cols="50" placeholder="John Snow, Daenerys, Melisandre, Arya Stark" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-dark">Submit</button>
+    </form>
+</div>
+    
+<%- include("./partials/footer") %>

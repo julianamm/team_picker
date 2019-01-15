@@ -1,0 +1,54 @@
+<%- include("./partials/header") %>
+    <div style="margin: 90px;">
+        <div class="card mt-4 mb-4 box-shadow shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body"> 
+                <h5 class="card-title title"><%= cohort.name %></h5>
+                <p class="card-text members"><%= cohort.members %></p>
+
+                <hr>
+
+                <form action="" method="GET">
+
+                    <div class="form-group m-4">
+                        <label>Method</label>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="method" id="mth-op1" value="count_val"
+                            <% if (!optMeth || optMeth === "count_val") { %>
+                            checked
+                            <% }%>>
+                            <label class="form-check-label" for="mth-op1">Team Count</label>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="radio" name="method" id="mth-op2" value="team_val"
+                            <% if (!optMeth || optMeth === "team_val") { %>
+                            checked
+                            <% }%>>
+                            <label class="form-check-label" for="mth-op2">Number Per Team</label>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="qty-form">Quantity</label>
+                            <input type="text" class="form-control" name="qty"  id="qty-form"
+                            <% if (qty) { %>
+                            value="<%=locals.qty%>"
+                            <% } %>>
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark btn-block">Assign Teams</button>
+                    </div>
+                </form>
+            </div>
+        
+            <div>
+                <% if (qty) { %>
+                    <h3 class="ml-3 mr-3 font-weight-bold title"> # Members</h3>
+                    <hr>
+                    <% for (let i = 0; i <  new_team.length; i++) {%>
+                        <p><span class="number ml-3 mr-3 font-weight-bold members"><%= i+1 %></span><%= new_team[i].join(', ') %></p>
+                    <hr>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+<%- include("./partials/footer") %>
